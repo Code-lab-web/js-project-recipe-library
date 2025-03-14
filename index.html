@@ -1,16 +1,165 @@
 index.html
 <!DOCTYPE html>
 <html>
-
+<html lang="en">
 <head>
   <title>JS Loops & Objects</title>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APIs and Date()</title>
 </head>
-
 <body>
-  <div id="app"></div>
+<div id="app"></div>
+<script src="src/index.js"></script>
+<script src="script.js"></script>
+<ul>
+  <li>Lorem ipsum dolor sit.</li>
+  <li>Expedita perferendis saepe quas.</li>
+  <li>Dolorem at fugit quam.</li>
+</ul>
+<ul>
+  <li><a href="#">Lorem ipsum dolor sit.</a></li>
+  <li><a href="#">Numquam exercitationem ea alias?</a></li>
+  <li><a href="#">Veniam, ea. Facilis, reiciendis.</a></li>
+  <li><a href="#">Enim inventore labore iste?</a></li>
+  <li><a href="#">Similique enim nisi quo.</a></li>
+</ul>
+<nav>
+  <ul role="list">
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Sign Up</a></li>
+  </ul>
+</nav>
+<ul role="list">
+  <li><a href="https://twitter.com"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" class="icon icon-twitter"><use href="#icon-twitter"></use></svg> Twitter</a></li>
+  <li><a href="https://facebook.com"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" class="icon icon-facebook"><use href="#icon-facebook"></use></svg> Facebook</a></li>
+  <li><a href="https://linkedin.com"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" class="icon icon-linkedin"><use href="#icon-linkedin"></use></svg> LinkedIn</a></li>
+  <li><a href="https://youtube.com"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" class="icon icon-youtube"><use href="#icon-youtube"></use></svg> YouTube</a></li>
+  <li><a href="https://twitch.tv"><svg aria-hidden="true" focusable="false" width="24" height="24" fill="currentColor" class="icon icon-twitch"><use href="#icon-twitch"></use></svg> Twitch</a></li>
+</ul>
+<header>
+  <h1>Lorem ipsum dolor sit.</h1>
+</header>
+<header>
+  <h1>Lorem ipsum dolor sit.</h1>
+  <a href="#">Sign Up</a>
+</header>
+<header>
+  <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+  <p><em>Published on: <time datetime="2021-07-24">July 24</time></em></p>
+  <p><small><strong>Written by</strong>: Stephanie Eckles</small></p>
+</header>
+<blockquote>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+  <footer>- <cite>Laura Ipdo</cite></footer>
+</blockquote>
+<article>
+  <h2>Lorem ipsum dolor sit.</h2>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <strong>Reiciendis nulla iste temporibus voluptatem</strong> sed laudantium eos fugiat fuga qui inventore placeat ullam voluptate pariatur exercitationem obcaecati, veniam debitis quisquam velit.</p>
+  <p>Ipsam nam iusto officia natus maxime inventore voluptatibus? Iste possimus veniam ipsum <a href="#">repellendus, ad tenetur ullam saepe impedit error</a>. Corrupti quas animi autem rem fugit ratione eligendi vero labore facilis.</p>
+  <hr>
+  <p>Aliquam delectus id sunt possimus, culpa repudiandae recusandae eius ex distinctio dolor ipsum voluptatem nam accusamus enim quasi dolorum. Corporis, repellendus. Ullam doloremque quam amet odio est culpa optio totam.</p>
+  <ul>
+    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+    <li>Ut, ea rerum. Ipsa ullam iusto nihil aliquam.</li>
+    <li>Reprehenderit veritatis officia dolores iste consequatur. Enim, voluptatibus?</li>
+  </ul>
+  <h3>Lorem ipsum dolor sit.</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nesciunt tempora iure animi tenetur perspiciatis nam provident quas minima tempore dolorum necessitatibus blanditiis quia officiis modi similique, nihil at! Recusandae?</p>
+  <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+  <ul>
+    <li>Lorem ipsum dolor sit.</li>
+    <li>Eius excepturi voluptate quisquam.</li>
+    <li>Placeat ut deleniti eveniet!</li>
+    <li>Dolor neque ipsa dolores!</li>
+    <li>Aspernatur consequuntur a ipsam!</li>
+  </ul>
+  <blockquote>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id ipsum quasi quidem voluptas aliquam?</p>
+  </blockquote>
+  <h2>Lorem ipsum dolor sit.</h2>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+  <a href="#">Lorem, ipsum dolor.</a>
+</article>
+<div class="container">
+  <main>
+    <article>
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <strong>Reiciendis nulla iste temporibus voluptatem</strong> sed laudantium eos fugiat fuga qui inventore placeat ullam voluptate pariatur exercitationem obcaecati, veniam debitis quisquam velit.</p>
+      <p>Aliquam delectus id sunt possimus, culpa repudiandae recusandae eius ex distinctio dolor ipsum voluptatem nam accusamus enim quasi dolorum. Corporis, repellendus. Ullam doloremque quam amet odio est culpa optio totam.</p>
+    </article>
+  </main>
+  <aside>
+    <figure>
+      <img src="https://source.unsplash.com/400x300/?beagle" alt="" width="200" height="100">
+      <figcaption>Lorem ipsum dolor sit.</figcaption>
+    </figure>
+  </aside>
+</div>
+<figure>
+  <img src="https://source.unsplash.com/400x300/?dinosaur" alt="alternative text required here, the example image is a dinosaur-related photo from a dynamic API" width="400" height="300">
+  <figcaption>Lorem ipsum dolor sit.</figcaption>
+</figure>
+<address>
+  <a href="mailto:fake@htmlrecipes.dev">📧 fake@htmlrecipes.dev</a>
+  <a href="tel:+5551231234">📞 (555) 123-1234</a>
+  🏠 123 Sesame Street<br>
+  New York, NY 10123
+</address>
+<ul role="list">
+  <li>
+    <img src="https://source.unsplash.com/400x300/?corgi" alt="" width="400" height="300">
+    <h3>Lorem ipsum dolor sit.</h3>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+  </li>
+  <li>
+    <img src="https://source.unsplash.com/400x300/?dolphin" alt="" width="400" height="300">
+    <h3>Quam ut enim quo.</h3>
+    <p>Suscipit earum magnam porro molestias fugiat! Dicta, dolor.</p>
+  </li>
+  <li>
+    <img src="https://source.unsplash.com/400x300/?kitten" alt="" width="400" height="300">
+    <h3>Quis dolor ipsam ea!</h3>
+    <p>Repudiandae nihil laudantium quae necessitatibus sint facilis. Unde?</p>
+  </li>
+</ul>
+<details>
+  <summary>Proin eget velit vel lectus elementum pharetra?</summary>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique
+  venenatis dui eget iaculis. Donec varius metus at augue sollicitudin,
+  vitae cursus dui faucibus. Quisque vulputate pulvinar ante at congue.
+</details>
 
-  <script src="src/index.js"></script>
+<details>
+  <summary>Vivamus consectetur orci sed eros ultricies tincidunt?</summary>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis,
+  purus vitae dapibus tincidunt, purus purus maximus libero, et auctor est
+  lacus id nunc. Cras convallis gravida nulla eu vulputate.
+</details>
+
+<details>
+  <summary>Lorem ipsum dolor sit amet?</summary>
+  Aenean in nunc lectus. Morbi nec sem auctor, tincidunt nisl nec, rutrum nisl.
+  Nulla viverra id enim ut fringilla. Morbi vulputate bibendum.
+</details>
+<form>
+  <label for="full-name">
+    Full Name:
+  </label>
+  <input id="full-name" name="full-name" type="text" autocomplete="name" required />
+  <label for="email-address">
+    Email Address:
+  </label>
+  <input id="email-address" name="email-address" type="email" autocomplete="email" required />
+  <label for="message">
+    Message:
+  </label>
+  <textarea id="message" name="message" rows="5" cols="30" required></textarea>
+  <button type="submit">Submit</button>
+</form>
+<footer>
+</footer>
 </body>
-
 </html>
