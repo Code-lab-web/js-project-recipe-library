@@ -1,7 +1,7 @@
 // const aRecipe = "Recipecard";
 const recipes = [
-    "vegetarian"
-    "italian"
+    "vegetarian",
+    "italian",
     "gluten-free"
   ];
   const time = [
@@ -16,66 +16,7 @@ const recipes = [
     "11-15 ingredients",
     "Over 16 ingredients"
   ];
-  const URL = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${e6dc8a39f6e14b3cac66bfcca7d84130}`
-  GET https://api.spoonacular.com/food/search
-  GET https://api.spoonacular.com/recipes/complexSearch
-  GET https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
-  GET https://api.spoonacular.com/recipes/findByNutrients
-  GET https://api.spoonacular.com/recipes/findByNutrients?minCarbs=10&maxCarbs=50&number=2
-  GET https://api.spoonacular.com/recipes/findByIngredients
-  GET https://api.spoonacular.com/recipes/{716429}/information
-  GET https://api.spoonacular.com/recipes/{644861}/information
-  GET https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
-  GET https://api.spoonacular.com/recipes/644861/information?includeNutrition=false
-  GET https://api.spoonacular.com/recipes/informationBulk
-  GET https://api.spoonacular.com/recipes/informationBulk?ids=716429
-  GET https://api.spoonacular.com/recipes/informationBulk?ids=644861
-  GET https://api.spoonacular.com/recipes/{716429}/similar
-  GET https://api.spoonacular.com/recipes/644861/similar
-  GET https://api.spoonacular.com/recipes/random
-  GET https://api.spoonacular.com/recipes/random?number=1&include-tags=vegetarian,dessert&exclude-tags=quinoa
-  GET https://api.spoonacular.com/recipes/autocomplete
-  GET https://api.spoonacular.com/recipes/autocomplete?number=150&query=chick
-  GET https://api.spoonacular.com/recipes/{716429}/tasteWidget.json
-  GET https://api.spoonacular.com/recipes/644861/tasteWidget.json
-  GET https://api.spoonacular.com/recipes/{716429}/equipmentWidget.json
-  GET https://api.spoonacular.com/recipes/644861/equipmentWidget.json
-  GET https://api.spoonacular.com/recipes/{716429}/priceBreakdownWidget.json
-  GET https://api.spoonacular.com/recipes/644861/priceBreakdownWidget.json
-  GET https://api.spoonacular.com/recipes/{716429}/ingredientWidget.json
-  GET https://api.spoonacular.com/recipes/644861/ingredientWidget.json
-  GET https://api.spoonacular.com/recipes/{716429}/nutritionWidget.json
-  GET https://api.spoonacular.com/recipes/644861/nutritionWidget.json
-  GET https://api.spoonacular.com/recipes/{716429}/analyzedInstructions
-  GET https://api.spoonacular.com/recipes/644861/analyzedInstructions
-  GET https://api.spoonacular.com/recipes/extract
-  GET https://api.spoonacular.com/recipes/extract?url=https://foodista.com/recipe/4BMVR7W2/Gluten-Free-Yellow-Cake-And-Cupcakes
-  GET https://api.spoonacular.com/food/ingredients/search
-  GET https://api.spoonacular.com/food/ingredients/{716429}/information
-  GET https://api.spoonacular.com/food/ingredients/{644861}/information
-  GET https://api.spoonacular.com/food/ingredients/716429/information?amount=1
-  GET https://api.spoonacular.com/food/ingredients/644861/information?amount=1
-  GET https://api.spoonacular.com/food/ingredients/{716429}/amount
-  GET https://api.spoonacular.com/food/ingredients/{644861}/amount
-  GET https://api.spoonacular.com/food/menuItems/search
-  GET https://api.spoonacular.com/food/menuItems/{716429}
-  GET https://api.spoonacular.com/food/menuItems/{644861}
-  GET https://api.spoonacular.com/recipes/{716429}/card
-  GET https://api.spoonacular.com/recipes/{644861}/card
-  POST https://api.spoonacular.com/recipes/visualizeRecipe
-      "offset": 0,
-      "number": 2,
-      "results": [
-          {
-              "id": 716429,
-              "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
-              "image": "https://img.spoonacular.com/recipes/716429-312x231.jpg",
-              "imageType": "jpg",
-          },
-          {
-      ],
-      "totalResults": 1
-  }
+  const URL = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${e6dc8a39f6e14b3cac66bfcca7d84130}`;
   const Response = {
       "recipes": [
         {
@@ -145,22 +86,19 @@ const recipes = [
           "originalId": null,
           "spoonacularScore": 11.655736923217773,
           "spoonacularSourceUrl": "https://spoonacular.com/gluten-free-yellow-cake-and-cupcakes-644861"
-        }
+        },
   {
         }
-        localStorage.setItem("recipes", JSON.stringify(fetchedRecipes))
-  const storedRecipes = localStorage.getItem("recipes")
-  
       ]
     }
-    const getDinnerMenu = () => {}
-    const randomButton =document.getElementByld("heart-button");
-  const answer = document.getElementByld("View-favorite-recipe-button") getFavoriteRecipeFirst;
-  btn.addEventListener('click' ,favorite recipe) getFavoriteRecipeFirst;
-  heartButton.addEventListener("click") getDinnerMenu);
-    getDinnerMenu()
-    
-    
-      
-  }
+  localStorage.setItem("recipes", JSON.stringify(Response.recipes));
+  const storedRecipes = localStorage.getItem("recipes");
+
+  const getDinnerMenu = () => {};
+  const randomButton = document.getElementById("heart-button");
+  const answer = document.getElementById("View-favorite-recipe-button");
+  randomButton.addEventListener('click', getDinnerMenu);
+  answer.addEventListener('click', getFavoriteRecipeFirst);
+
+  getDinnerMenu();
   

@@ -14,7 +14,6 @@ const fetchRecipes = async () => {
       return recipe.cuisines.length > 0 && recipe.image && recipe.title;
     });
     console.log(validRecipes);
-    });
     //render valid recipes in the DOM
     // renderRipes(validRecipes)
     // return validRecipes

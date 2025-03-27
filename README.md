@@ -2,6 +2,7 @@
 # The AI Act
 # A/RES/217(III)
 # A/RES/70/1
-# Copyright Special Garden Group
-
+# EAA
+# WCAG
+Copyright Special Garden Group
 # js-project-recipe-library
