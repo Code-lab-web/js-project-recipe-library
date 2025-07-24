@@ -1,8 +1,7 @@
 {
-  "dependencies": {
-    "jest": "^30.0.5"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "jest": "^30.0.5",
     "@eslint/js": "^9.31.0",
     "eslint": "^9.31.0",
     "eslint-plugin-react": "^7.37.5",
