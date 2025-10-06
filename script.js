@@ -1,85 +1,110 @@
-const allButton = document.getElementById("all")
-const italyButton = document.getElementById("italy")
-const usaButton = document.getElementById("usa")
-const chinaButton = document.getElementById("china")
-const sortByTimeAscButton = document.getElementById("highToLow")
-const sortByTimeDescButton = document.getElementById("lowToHigh")
-const recipesSection = document.getElementById("recipes")
-const messagesSection = document.getElementById("messages")
 
-// Function to remove active class from all buttons in a group
-const removeActiveClass = (buttons) => {
-  buttons.forEach(button => button.classList.remove("active"))
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Sample recipe data
+    const recipes = [
+        {
+            name: "Baked Chicken",
+            cuisineType: ["American"],
+            ingredients: [
+                "6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on",
+                "1/2 teaspoon coarse salt",
+                "1/2 teaspoon Mrs. Dash seasoning",
+                "1/4 teaspoon freshly ground black pepper",
+            ],
+            source: "Martha Stewart",
+            totalTime: 90,
+            url: "http://www.marthastewart.com/318981/baked-chicken",
+        },
+        {
+            name: "Spaghetti Carbonara",
+            cuisineType: ["Italian"],
+            ingredients: [
+                "1 pound spaghetti",
+                "2 large eggs",
+                "1/2 cup grated Parmesan cheese",
+                "4 slices bacon, diced",
+                "4 cloves garlic, minced",
+                "Salt and black pepper to taste",
+            ],
+            source: "Allrecipes",
+            totalTime: 30,
+            url: "https://www.allrecipes.com/recipe/11973/spaghetti-carbonara/",
+        },
+        {
+            name: "Chicken Stir-Fry",
+            cuisineType: ["Chinese"],
+            ingredients: [
+                "1 pound boneless, skinless chicken breasts, cut into bite-sized pieces",
+                "1 tablespoon soy sauce",
+                "1 tablespoon cornstarch",
+                "1 tablespoon vegetable oil",
+                "1 cup broccoli florets",
+                "1 cup sliced carrots",
+                "1/2 cup sliced onion",
+            ],
+            source: "The Woks of Life",
+            totalTime: 25,
+            url: "https://thewoksoflife.com/chicken-stir-fry/",
+        }
+    ];
 
-const recipe =   {
-  name: "Baked Chicken",
-  cuisineType: ["American"],
-  ingredients: [
-    "6 bone-in chicken breast halves, or 6 chicken thighs and wings, skin-on",
-    "1/2 teaspoon coarse salt",
-    "1/2 teaspoon Mrs. Dash seasoning",
-    "1/4 teaspoon freshly ground black pepper",
-  ],
-  source: "Martha Stewart",
-  totalTime: 90,
-  url: "http://www.marthastewart.com/318981/baked-chicken",
-  image: "./recipe-images/baked-chicken.jpg",
-}
+    const searchForm = document.querySelector('form[role="search"]');
+    const searchInput = document.getElementById('searchInput');
+    const recipeContainer = document.getElementById('recipeDescription');
+    const sortOrder = document.getElementById('sortOrder');
 
-const updateHTML = (filter, button, buttonGroup) => {
-  removeActiveClass(buttonGroup) // Remove active class from all buttons
-  button.classList.add("active") // Add active class to clicked button
+    let filteredRecipes = [...recipes];
 
-  console.log(filter)
-  let message = ""
-  if (filter === "chinese") {
-    message = "You chose Chinese"
-  } else if (filter === "all") {
-    message = "You eat everything, maybe liver then?"
-  } else if (filter === "american") {
-    message = "Cranberry sauce?"
-  } else if (filter === "italian") {
-    message = "Are you a pasta or a pizza person?"
-  } else if (filter === "ascending") {
-    message = `You in a hurry mate?`
-  } else {
-    message = `You want to impress on someone?`
-  }
-  messagesSection.innerHTML += `<p>${message}</p>`
-}
+    const renderRecipes = (recipesToRender) => {
+        recipeContainer.innerHTML = '';
+        if (recipesToRender.length === 0) {
+            recipeContainer.innerHTML = '<p>No recipes found.</p>';
+            return;
+        }
 
-// allButton.addEventListener("click", () => {
-//   updateHTML("all")
-// })
+        const recipeList = document.createElement('ul');
+        recipeList.setAttribute('aria-label', 'Recipe search results');
+        
+        recipesToRender.forEach(recipe => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <h3><a href="${recipe.url}" target="_blank" rel="noopener noreferrer">${recipe.name} <span class="visually-hidden">(opens in a new tab)</span></a></h3>
+                <p>Cuisine: ${recipe.cuisineType.join(', ')}</p>
+                <p>Time: ${recipe.totalTime} minutes</p>
+                <p>Source: ${recipe.source}</p>
+            `;
+            recipeList.appendChild(listItem);
+        });
+        recipeContainer.appendChild(recipeList);
+    };
 
-// italyButton.addEventListener("click", () => {
-//   updateHTML("italian")
-// })
+    const sortAndRender = () => {
+        const sortBy = sortOrder.value;
+        const sorted = [...filteredRecipes].sort((a, b) => {
+            if (sortBy === 'asc') {
+                return a.totalTime - b.totalTime;
+            } else {
+                return b.totalTime - a.totalTime;
+            }
+        });
+        renderRecipes(sorted);
+    };
 
-// usaButton.addEventListener("click", () => {
-//   updateHTML("american")
-// })
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        if (searchTerm) {
+            filteredRecipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm));
+        } else {
+            filteredRecipes = [...recipes];
+        }
+        sortAndRender();
+    };
 
-// chinaButton.addEventListener("click", () => {
-//   updateHTML("chinese")
-// })
-
-// sortByTimeAscButton.addEventListener("click", () => {
-//   updateHTML("ascending")
-// })
-// sortByTimeDescButton.addEventListener("click", () => {
-//   updateHTML("descending")
-// })
-
-// ✅ Event Listeners for Cuisine Filters
-const filterButtons = [allButton, italyButton, usaButton, chinaButton]
-allButton.addEventListener("click", () => updateHTML("all", allButton, filterButtons))
-italyButton.addEventListener("click", () => updateHTML("italian", italyButton, filterButtons))
-usaButton.addEventListener("click", () => updateHTML("american", usaButton, filterButtons))
-chinaButton.addEventListener("click", () => updateHTML("chinese", chinaButton, filterButtons))
-
-// ✅ Event Listeners for Sorting Buttons
-const sortButtons = [sortByTimeAscButton, sortByTimeDescButton]
-sortByTimeAscButton.addEventListener("click", () => updateHTML("ascending", sortByTimeAscButton, sortButtons))
-sortByTimeDescButton.addEventListener("click", () => updateHTML("descending", sortByTimeDescButton, sortButtons))
+    searchForm.addEventListener('submit', handleSearch);
+    sortOrder.addEventListener('change', sortAndRender);
+    
+    // Initial render on page load
+    sortAndRender();
+});
