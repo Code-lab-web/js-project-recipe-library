@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "node facebook-tutorial/bin/www",
     "test": "jest"
   },
   "dependencies": {
@@ -42,7 +43,6 @@
     "@babel/plugin-transform-arrow-functions": "^7.27.1",
     "@babel/plugin-transform-duplicate-named-capturing-groups-regex": "^7.27.1",
     "@babel/plugin-transform-explicit-resource-management": "^7.28.0",
-    "@babel/plugin-transform-flow-strip-types": "^7.27.1",
     "@babel/plugin-transform-json-modules": "^7.28.0",
     "@babel/plugin-transform-regexp-modifiers": "^7.27.1",
     "@babel/plugin-transform-runtime": "^7.28.3",
