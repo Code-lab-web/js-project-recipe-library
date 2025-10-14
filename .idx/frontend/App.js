@@ -7,7 +7,6 @@ function App () {
             Hallo custumer/member
             </p>
             </div>
-        
     );
 }
 export default App;

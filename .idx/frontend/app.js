@@ -5,6 +5,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var logger = require('morgan');
+var session = require('express-session');
+var SQLiteStore = require('connect-sqlite3')(session);
 var session = require('express-session');
 var passport = require('passport');
 var SQLiteStore = require('connect-sqlite3')(session);
@@ -25,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
