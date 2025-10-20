@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import { getRandomRecipes } from './api';
+import { useStore } from './store';
+import RecipeCard from './components/RecipeCard';
+import Filters from './components/Filters';
+import Sort from './components/Sort';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const { recipes, filteredRecipes, error, setRecipes, setError, filterAndSort } = useStore();
+  const [filters, setFilters] = useState({
+    vegetarian: false,
+    vegan: false,
+    glutenFree: false,
+    dairyFree: false,
+  });
+  const [sortBy, setSortBy] = useState('none');
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const randomRecipes = await getRandomRecipes(20);
+        setRecipes(randomRecipes);
+      } catch (err: any) {
+        setError(err.message);
+      }
+    };
+
+    fetchRecipes();
+  }, [setRecipes, setError]);
+
+  useEffect(() => {
+    filterAndSort(filters, sortBy as any);
+  }, [filters, sortBy, filterAndSort]);
+
+  const handleRandomRecipe = () => {
+    const randomIndex = Math.floor(Math.random() * recipes.length);
+    const randomRecipe = recipes[randomIndex];
+    alert(`Random recipe: ${randomRecipe.title}`);
+  };
+
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>Recipe Finder</h1>
+      <div className="controls">
+        <Filters onFilterChange={setFilters} />
+        <Sort onSortChange={setSortBy} />
+        <button onClick={handleRandomRecipe}>Random Recipe</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      {filteredRecipes.length > 0 ? (
+        <div className="recipe-grid">
+          {filteredRecipes.map(recipe => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-state">No recipes found.</div>
+      )}
+    </div>
+  );
+};
 
-export default App
+export default App;
